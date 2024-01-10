@@ -13,7 +13,7 @@ const DisplayUserForm = () => {
       {state.userItems.length === 0 ? (
         <EmptyForm />
       ) : (
-        <div>
+        <div className="flexCol columns-4 gap-3">
           {state.userItems.map((item) => (
             <div key={item.id} className="">
               {item.inputType === "description" ? (
@@ -23,7 +23,14 @@ const DisplayUserForm = () => {
                 </div>
               ) : (
                 <div className="flex justify-between items-center w-full gap-5">
-                  <div>
+                  <div
+                    className={`${
+                      item.inputType === "checkbox" ||
+                      item.inputType === "radio"
+                        ? "flexBetween checkbox"
+                        : "flexBetween input"
+                    }`}
+                  >
                     <label htmlFor={item.inputType}>
                       {item.label}
                       {item.required ? (
@@ -68,6 +75,7 @@ const DisplayUserForm = () => {
               )}
             </div>
           ))}
+          <input type="submit" className="btn btn-full mx-auto" />
         </div>
       )}
     </div>

@@ -22,7 +22,7 @@ const FormElementsOptions = () => {
                 dispatch({ type: "openModal", payload: `${item.type}` });
               }}
             >
-              <h3 className="font-semibold capitalize text-center border-b border-b-[#555]">
+              <h3 className="font-semibold capitalize text-center border-b border-b-[#555] pb-2">
                 {item.type}
               </h3>
             </div>

@@ -31,10 +31,6 @@ export const mainFormItems: itemType[] = [
     type: "radio",
   },
   {
-    id: 7,
-    type: "button",
-  },
-  {
     id: 8,
     type: "number",
   },

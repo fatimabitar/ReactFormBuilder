@@ -19,6 +19,19 @@ body {
   .element-type {
     @apply cursor-pointer hover:text-mainBrand py-3;
   }
+
+  .displayForm {
+    @apply rounded-md w-[95%] min-h-[80vh] mx-auto shadow-lg bg-bgSecondary overflow-y-visible;
+  }
+  .flexBetween {
+    @apply flex justify-between items-center gap-3;
+  }
+  .checkbox {
+    @apply w-[100px] flex-row-reverse;
+  }
+  .input {
+    @apply w-[400px]
+  }
   input,
   textarea {
     @apply px-3 py-2 text-black rounded-sm border-none outline-none hover:outline-2
