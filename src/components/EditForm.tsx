@@ -1,7 +1,8 @@
+import { useCallback, useEffect } from "react";
 import { useForm } from "../FormContext";
 import { useGetValues } from "../utils/useGetValues";
 
-const InputForm = () => {
+const EditForm = () => {
   const { state, dispatch } = useForm();
   const {
     label,
@@ -14,13 +15,37 @@ const InputForm = () => {
     setRequired,
     disabled,
     setDisabled,
-    handleSaveValues,
+    handleUpdate,
   } = useGetValues();
+
+  const index = state.editedItemIndex;
+
+  const init = useCallback(() => {
+    setLabel(state.userItems[index].label);
+    setPlaceholder(state.userItems[index].placeholder);
+    setRequired(state.userItems[index].required);
+    setHidden(state.userItems[index].hidden);
+    setDisabled(state.userItems[index].disabled);
+  }, [
+    index,
+    setDisabled,
+    setHidden,
+    setLabel,
+    setPlaceholder,
+    setRequired,
+    state,
+  ]);
+  useEffect(() => {
+    init();
+  }, [init]);
 
   return (
     <div>
       <h2 className="text-xl capitalize mb-5">
-        <span className="text-[#29A19C]">{state.itemType}</span> Component:
+        <span className="text-[#29A19C]">
+          {state.userItems[index].inputType}
+        </span>{" "}
+        Component:
       </h2>
 
       <form className="form">
@@ -30,7 +55,7 @@ const InputForm = () => {
             <label htmlFor="text">Description</label>
             <textarea
               name="text"
-              value={label}
+              value={state.userItems[index].label}
               placeholder="Enter Your Description"
               onChange={(e) => {
                 setLabel(e.target.value);
@@ -111,11 +136,13 @@ const InputForm = () => {
         <div>
           <input
             type="button"
-            value="save"
+            value="Update"
             className="btn btn-full mr-4"
             onClick={() => {
-              handleSaveValues();
+              handleUpdate();
               dispatch({ type: "closeModal" });
+              dispatch({ type: "restEditItem" });
+              console.log(state.isEdit);
             }}
           />
           <input
@@ -132,4 +159,4 @@ const InputForm = () => {
   );
 };
 
-export default InputForm;
+export default EditForm;

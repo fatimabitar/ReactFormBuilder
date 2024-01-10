@@ -9,7 +9,7 @@ export const useGetValues = () => {
   const [hidden, setHidden] = useState<boolean>(false);
   const [required, setRequired] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(false);
-  const inputType = state.itemType
+  const inputType = state.itemType;
   const id = useId();
 
   const handleSaveValues = () => {
@@ -24,6 +24,19 @@ export const useGetValues = () => {
     });
     console.log(userItems);
   };
+  const handleUpdate = () => {
+    const index = state.editedItemIndex;
+    const newArray = (state.userItems[index] = {
+      id: id,
+      inputType: inputType,
+      label: label,
+      placeholder: placeholder,
+      hidden: hidden,
+      required: required,
+      disabled: disabled,
+    });
+    console.log(newArray);
+  };
 
   return {
     label,
@@ -37,5 +50,6 @@ export const useGetValues = () => {
     disabled,
     setDisabled,
     handleSaveValues,
+    handleUpdate,
   };
 };

@@ -21,20 +21,28 @@ interface FormState {
   userItems: inputItem[];
   isModalOpen: boolean;
   itemType: string;
+  editedItemIndex: number;
+  isEdit: boolean;
 }
 
 type FormAction =
   | { type: "getStarted" }
   | { type: "openModal"; payload: string }
   | { type: "closeModal" }
-  | { type: "reset" };
+  | { type: "reset" }
+  | { type: "removeItem"; payload: string }
+  | { type: "editItem"; payload: string }
+  | { type: "restEditItem" };
 
 const initialState: FormState = {
   isStarted: false,
   userItems: userItems,
   isModalOpen: false,
   itemType: "",
+  editedItemIndex: -1,
+  isEdit: false,
 };
+
 const FormContext = createContext<FormContext>({
   state: initialState,
   dispatch: () => null,
@@ -65,8 +73,27 @@ function formReducer(state: FormState, action: FormAction): FormState {
       return { ...state, isModalOpen: true, itemType: action.payload };
     case "closeModal":
       return { ...state, isModalOpen: false };
+    case "restEditItem":
+      return { ...state, isEdit: false };
     case "reset":
-      return { ...state, userItems: [],};
+      return { ...state, userItems: [] };
+    case "removeItem":
+      return {
+        ...state,
+        userItems: state.userItems.filter((item) => item.id !== action.payload),
+      };
+    case "editItem":
+      return {
+        ...state,
+        editedItemIndex: state.userItems.findIndex(
+          (item) => item.id === action.payload
+        ),
+
+        isModalOpen: true,
+        isEdit: true,
+        // userItems: state.userItems.filter((item) => item.id === action.payload),
+      };
+
     default:
       throw new Error("Unknown action");
   }

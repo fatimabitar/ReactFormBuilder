@@ -7,6 +7,10 @@ export type itemType = {
 
 export const mainFormItems: itemType[] = [
   {
+    id: 13,
+    type: "description",
+  },
+  {
     id: 1,
     type: "text",
   },
@@ -53,10 +57,6 @@ export const mainFormItems: itemType[] = [
   {
     id: 12,
     type: "file",
-  },
-  {
-    id: 13,
-    type: "image",
   },
 ];
 

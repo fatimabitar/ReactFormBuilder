@@ -19,12 +19,23 @@ body {
   .element-type {
     @apply cursor-pointer hover:text-mainBrand py-3;
   }
-  input {
-    @apply px-3 py-2 text-black rounded-sm;
+  input,
+  textarea {
+    @apply px-3 py-2 text-black rounded-sm border-none outline-none hover:outline-2
+     focus:outline-[#29A19C] shadow-sm hover:shadow-[#29A19C];
   }
 
   .check-group > input {
     @apply cursor-pointer w-10 h-5;
+  }
+  .user-form {
+    @apply flex flex-col items-center p-5 h-[80vh];
+  }
+  .flexCol {
+    @apply flex flex-col justify-center items-center;
+  }
+  .icon {
+    @apply text-lg mb-2 cursor-pointer hover:scale-110 hover:text-[#A3F7BF] transition-all duration-300;
   }
 }
 
