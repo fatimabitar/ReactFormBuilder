@@ -1,6 +1,6 @@
 import { useForm } from "../FormContext";
+import EditForm from "./EditForm";
 import InputForm from "./InputForm";
-import EditForm from "./editForm";
 
 const ItemModal = () => {
   const { state } = useForm();
