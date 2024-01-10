@@ -24,10 +24,9 @@ const InputForm = () => {
       </h2>
 
       <form className="form">
+        <h2 className="items-start">Please choose your custum settings:</h2>
         <div className="form-group">
-          <label htmlFor="text">
-            Label: <span className="text-red-600 font-bold">*</span>
-          </label>
+          <label htmlFor="text">Label:</label>
           <input
             type="text"
             name="text"
@@ -92,15 +91,25 @@ const InputForm = () => {
           </div>
         </div>
 
-        <input
-          type="button"
-          value="save"
-          className="btn btn-full"
-          onClick={() => {
-            handleSaveValues();
-            dispatch({ type: "closeModal" });
-          }}
-        />
+        <div>
+          <input
+            type="button"
+            value="save"
+            className="btn btn-full mr-4"
+            onClick={() => {
+              handleSaveValues();
+              dispatch({ type: "closeModal" });
+            }}
+          />
+          <input
+            type="button"
+            value="cancel"
+            className="btn btn-outline"
+            onClick={() => {
+              dispatch({ type: "closeModal" });
+            }}
+          />
+        </div>
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: #161a1e;
   color: #fff;
+  overflow: hidden;
 }
 
 @layer base {
@@ -23,13 +24,13 @@ body {
   }
 
   .check-group > input {
-    @apply cursor-pointer w-10 h-5
+    @apply cursor-pointer w-10 h-5;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-lg transition-all duration-300 capitalize font-bold;
+    @apply px-4 py-2 rounded-lg transition-all duration-300 capitalize font-bold cursor-pointer;
   }
   .btn-full {
     @apply bg-mainBrand hover:bg-babyBlue hover:text-bgMain;
@@ -47,10 +48,10 @@ body {
     -o-transform: translate(-50%, -50%);
   }
   .modal_overlay {
-    @apply w-svw h-screen fixed bg-slate-900 opacity-50;
+    @apply w-svw h-screen fixed bg-slate-400 opacity-50;
   }
   .modal-box {
-    @apply z-50 w-full bg-bgMain h-full flex flex-col items-center justify-center relative;
+    @apply z-50 w-full bg-bgMain h-full flex flex-col items-center justify-center relative rounded-lg;
   }
   .form {
     @apply flex flex-col items-center justify-evenly gap-10 border rounded-lg p-16 capitalize;

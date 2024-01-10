@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { userItems } from "./data";
 
 export interface inputItem {
+  id: string;
   inputType: string;
   label: string;
   placeholder: string;
@@ -19,19 +20,20 @@ interface FormState {
   isStarted: boolean;
   userItems: inputItem[];
   isModalOpen: boolean;
-  itemType: string | null;
+  itemType: string;
 }
 
 type FormAction =
   | { type: "getStarted" }
   | { type: "openModal"; payload: string }
-  | { type: "closeModal" };
+  | { type: "closeModal" }
+  | { type: "reset" };
 
 const initialState: FormState = {
   isStarted: false,
   userItems: userItems,
   isModalOpen: false,
-  itemType: null,
+  itemType: "",
 };
 const FormContext = createContext<FormContext>({
   state: initialState,
@@ -63,6 +65,8 @@ function formReducer(state: FormState, action: FormAction): FormState {
       return { ...state, isModalOpen: true, itemType: action.payload };
     case "closeModal":
       return { ...state, isModalOpen: false };
+    case "reset":
+      return { ...state, userItems: [],};
     default:
       throw new Error("Unknown action");
   }

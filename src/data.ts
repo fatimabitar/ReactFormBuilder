@@ -16,7 +16,7 @@ export const mainFormItems: itemType[] = [
   },
   {
     id: 3,
-    type: "passowrd",
+    type: "password",
   },
   {
     id: 5,
