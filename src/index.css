@@ -27,7 +27,7 @@ body {
     @apply w-[100px] flex-row-reverse;
   }
   .input {
-    @apply w-[400px];
+    @apply w-full md:w-[400px];
   }
   input,
   textarea {
