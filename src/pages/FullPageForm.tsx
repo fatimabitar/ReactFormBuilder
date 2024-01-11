@@ -3,9 +3,18 @@ import { useForm } from "../FormContext";
 const FullPageForm = () => {
   const { state, dispatch } = useForm();
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <section className="container min-h-screen flexCol my-3">
-      <div className="flexCol columns-4 gap-8 bg-bgSecondary p-20 rounded-lg">
+      <form
+        className="flexCol columns-4 gap-8 bg-bgSecondary p-20 rounded-lg"
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         {state.userItems.map((item) => (
           <div key={item.id} className="">
             {item.inputType === "description" ? (
@@ -44,7 +53,9 @@ const FullPageForm = () => {
           </div>
         ))}
         <div className="flexBetween w-9/12 my-5">
-          <input type="submit" className="btn btn-full mx-auto" />
+          <button type="submit" className="btn btn-full mx-auto">
+            Submit
+          </button>
           <input
             type="button"
             value="Back"
@@ -54,7 +65,7 @@ const FullPageForm = () => {
             }}
           />
         </div>
-      </div>
+      </form>
     </section>
   );
 };
