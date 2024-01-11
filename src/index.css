@@ -74,10 +74,10 @@ body {
     @apply w-svw h-screen fixed bg-slate-400 opacity-50;
   }
   .modal-box {
-    @apply z-50 w-full bg-bgMain h-full flex flex-col items-center justify-center relative rounded-lg p-3;
+    @apply z-50 w-[90%] md:w-full bg-bgMain h-full flex flex-col items-center justify-center relative rounded-lg p-3;
   }
   .form {
-    @apply flex flex-col items-center justify-center gap-10 border rounded-lg p-5 lg:p-10 capitalize;
+    @apply flex flex-col items-center justify-center gap-10 border rounded-lg p-3 lg:p-10 capitalize;
   }
   .form-group {
     @apply flex items-center justify-between gap-4 flex-wrap min-w-[250px] md:min-w-[280px] lg:min-w-[300px];
