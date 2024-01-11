@@ -18,7 +18,7 @@ const InputForm = () => {
   } = useGetValues();
 
   return (
-    <div>
+    <div className="w-full">
       <h2 className="text-xl capitalize mb-5">
         <span className="text-[#29A19C]">{state.itemType}</span> Component:
       </h2>
@@ -53,7 +53,8 @@ const InputForm = () => {
                 }}
                 required
               />
-
+            </div>
+            <div className="form-group">
               <label htmlFor="placeholder">placeholder:</label>
               <input
                 type="text"

@@ -6,13 +6,10 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: #161a1e;
   color: #fff;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 @layer base {
-  .container {
-    @apply w-11/12 mx-auto;
-  }
   .main {
     @apply w-full h-screen bg-bgMain flex flex-col justify-center items-center gap-10;
   }
@@ -30,7 +27,7 @@ body {
     @apply w-[100px] flex-row-reverse;
   }
   .input {
-    @apply w-[400px]
+    @apply w-[400px];
   }
   input,
   textarea {
@@ -42,7 +39,7 @@ body {
     @apply cursor-pointer w-10 h-5;
   }
   .user-form {
-    @apply flex flex-col items-center p-5 h-[80vh];
+    @apply flex flex-col items-center p-5 min-h-[80vh];
   }
   .flexCol {
     @apply flex flex-col justify-center items-center;
@@ -53,6 +50,12 @@ body {
 }
 
 @layer components {
+  .container {
+    @apply w-11/12 mx-auto;
+  }
+  .preview-container {
+    @apply w-full lg:w-10/12 flex flex-col items-center justify-evenly gap-3;
+  }
   .btn {
     @apply px-4 py-2 rounded-lg transition-all duration-300 capitalize font-bold cursor-pointer;
   }
@@ -62,26 +65,22 @@ body {
   .btn-outline {
     @apply border-2 border-[#29A19C] text-[#29A19C] hover:border-[#A3F7BF] hover:text-[#A3F7BF];
   }
+
   .modal {
     @apply w-[80%] h-[90vh] bg-bgSecondary fixed left-[50%] top-[50%] flex flex-col
-    items-center justify-center z-50;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+    items-center justify-center z-50 translate-x-[-50%] translate-y-[-50%];
   }
   .modal_overlay {
     @apply w-svw h-screen fixed bg-slate-400 opacity-50;
   }
   .modal-box {
-    @apply z-50 w-full bg-bgMain h-full flex flex-col items-center justify-center relative rounded-lg;
+    @apply z-50 w-full bg-bgMain h-full flex flex-col items-center justify-center relative rounded-lg p-3;
   }
   .form {
-    @apply flex flex-col items-center justify-evenly gap-10 border rounded-lg p-16 capitalize;
+    @apply flex flex-col items-center justify-center gap-10 border rounded-lg p-5 lg:p-10 capitalize;
   }
   .form-group {
-    @apply flex items-center justify-between gap-4;
+    @apply flex items-center justify-between gap-4 flex-wrap min-w-[250px] md:min-w-[280px] lg:min-w-[300px];
   }
   .check-group {
     @apply flex items-center gap-2;

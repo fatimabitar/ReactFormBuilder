@@ -23,6 +23,7 @@ interface FormState {
   itemType: string;
   editedItemIndex: number;
   isEdit: boolean;
+  isPreview: boolean;
 }
 
 type FormAction =
@@ -32,7 +33,8 @@ type FormAction =
   | { type: "reset" }
   | { type: "removeItem"; payload: string }
   | { type: "editItem"; payload: string }
-  | { type: "restEditItem" };
+  | { type: "restEditItem" }
+  | { type: "createForm" };
 
 const initialState: FormState = {
   isStarted: false,
@@ -41,6 +43,7 @@ const initialState: FormState = {
   itemType: "",
   editedItemIndex: -1,
   isEdit: false,
+  isPreview: false,
 };
 
 const FormContext = createContext<FormContext>({
@@ -69,6 +72,8 @@ function formReducer(state: FormState, action: FormAction): FormState {
   switch (action.type) {
     case "getStarted":
       return { ...state, isStarted: true };
+    case "createForm":
+      return { ...state, isPreview: !state.isPreview };
     case "openModal":
       return { ...state, isModalOpen: true, itemType: action.payload };
     case "closeModal":
@@ -91,7 +96,6 @@ function formReducer(state: FormState, action: FormAction): FormState {
 
         isModalOpen: true,
         isEdit: true,
-        // userItems: state.userItems.filter((item) => item.id === action.payload),
       };
 
     default:

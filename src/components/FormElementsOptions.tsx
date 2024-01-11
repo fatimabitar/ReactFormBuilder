@@ -4,7 +4,7 @@ import { mainFormItems } from "../data";
 const FormElementsOptions = () => {
   const { dispatch } = useForm();
   return (
-    <div className="w-2/12 bg-bgSecondary shadow h-screen">
+    <div className="w-full lg:w-2/12 bg-bgSecondary shadow h-auto lg:h-screen lg:overflow-y-scroll">
       <div className="w-11/12 mx-auto flex flex-col justify-between py-5">
         <div>
           <h2 className="font-semibold text-[16px]">
@@ -13,7 +13,7 @@ const FormElementsOptions = () => {
           <hr className="w-full my-3 opacity-60" />
         </div>
 
-        <div>
+        <div className="flex flex-row flex-wrap gap-3 lg:gap-0 lg:flex-col">
           {mainFormItems.map((item) => (
             <div
               key={item.id}

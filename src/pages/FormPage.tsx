@@ -4,7 +4,7 @@ import PreviewContainer from "../components/PerviewContainer";
 
 const FormPage = () => {
   return (
-    <div className="flex">
+    <div className="flex lg:flex-row flex-col">
       <FormElementsOptions />
       <PreviewContainer />
       <ItemModal />
