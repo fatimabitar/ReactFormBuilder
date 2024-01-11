@@ -80,7 +80,8 @@ body {
     @apply flex flex-col items-center justify-center gap-10 border rounded-lg p-3 lg:p-10 capitalize;
   }
   .form-group {
-    @apply flex items-center justify-between gap-4 flex-wrap min-w-[250px] md:min-w-[280px] lg:min-w-[300px];
+    @apply flex flex-col items-start md:items-center justify-between  md:flex-row gap-4 
+     min-w-[250px] md:min-w-[280px] lg:min-w-[300px];
   }
   .check-group {
     @apply flex items-center gap-2;

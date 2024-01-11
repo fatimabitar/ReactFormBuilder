@@ -5,6 +5,7 @@ const FullPageForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    alert("Submitted Successfully!")
   };
 
   return (
@@ -46,6 +47,7 @@ const FullPageForm = () => {
                     hidden={item.hidden}
                     required={item.required}
                     disabled={item.disabled}
+                    
                   />
                 </div>
               </div>

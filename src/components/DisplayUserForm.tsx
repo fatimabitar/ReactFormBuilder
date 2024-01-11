@@ -43,7 +43,7 @@ const DisplayUserForm = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex justify-between items-center w-full gap-5">
+                <div className="flex justify-between md:items-center items-end w-full gap-5 ">
                   <div
                     className={`${
                       item.inputType === "checkbox" ||
