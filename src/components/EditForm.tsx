@@ -52,16 +52,15 @@ const EditForm = () => {
         <h2 className="items-start">Please choose your custum settings:</h2>
         {state.itemType === "description" ? (
           <div className="flexCol w-full">
-            <label htmlFor="text">Description</label>
+            <label htmlFor="textarea">Description</label>
             <textarea
-              name="text"
+              name="textarea"
               value={state.userItems[index].label}
               placeholder="Enter Your Description"
               onChange={(e) => {
                 setLabel(e.target.value);
               }}
               className="w-full h-40"
-              required
             />
           </div>
         ) : (
@@ -142,7 +141,6 @@ const EditForm = () => {
               handleUpdate();
               dispatch({ type: "closeModal" });
               dispatch({ type: "restEditItem" });
-              console.log(state.isEdit);
             }}
           />
           <input
@@ -151,6 +149,7 @@ const EditForm = () => {
             className="btn btn-outline"
             onClick={() => {
               dispatch({ type: "closeModal" });
+              dispatch({ type: "restEditItem" });
             }}
           />
         </div>

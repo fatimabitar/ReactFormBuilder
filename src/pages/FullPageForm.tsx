@@ -2,6 +2,7 @@ import { useForm } from "../FormContext";
 
 const FullPageForm = () => {
   const { state, dispatch } = useForm();
+
   return (
     <section className="container min-h-screen flexCol my-3">
       <div className="flexCol columns-4 gap-8 bg-bgSecondary p-20 rounded-lg">

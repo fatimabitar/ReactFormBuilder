@@ -79,7 +79,11 @@ function formReducer(state: FormState, action: FormAction): FormState {
     case "closeModal":
       return { ...state, isModalOpen: false };
     case "restEditItem":
-      return { ...state, isEdit: false };
+      return {
+        ...state,
+        isEdit: false,
+        editedItemIndex: (state.editedItemIndex = -1),
+      };
     case "reset":
       return { ...state, userItems: [] };
     case "removeItem":
@@ -93,7 +97,6 @@ function formReducer(state: FormState, action: FormAction): FormState {
         editedItemIndex: state.userItems.findIndex(
           (item) => item.id === action.payload
         ),
-
         isModalOpen: true,
         isEdit: true,
       };

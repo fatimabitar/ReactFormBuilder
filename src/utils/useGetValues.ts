@@ -12,17 +12,29 @@ export const useGetValues = () => {
   const inputType = state.itemType;
   const id = useId();
 
+  // const validateErrors = {};
+
   const handleSaveValues = () => {
-    state.userItems.push({
-      id: id,
-      inputType: inputType,
-      label: label,
-      placeholder: placeholder,
-      hidden: hidden,
-      required: required,
-      disabled: disabled,
-    });
-    console.log(userItems);
+    if (
+      !label.trim() &&
+      !placeholder.trim() &&
+      !hidden &&
+      !required &&
+      !disabled
+    ) {
+      alert("your item is empty! please choose some settings.");
+    } else {
+      state.userItems.push({
+        id: id,
+        inputType: inputType,
+        label: label,
+        placeholder: placeholder,
+        hidden: hidden,
+        required: required,
+        disabled: disabled,
+      });
+      console.log(userItems);
+    }
   };
   const handleUpdate = () => {
     const index = state.editedItemIndex;
@@ -37,6 +49,8 @@ export const useGetValues = () => {
     });
     console.log(newArray);
   };
+
+  /* Validate */
 
   return {
     label,

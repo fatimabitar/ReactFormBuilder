@@ -17,9 +17,30 @@ const DisplayUserForm = () => {
           {state.userItems.map((item) => (
             <div key={item.id} className="">
               {item.inputType === "description" ? (
-                <div>
-                  <h3 className="font-semibold">{item.label}</h3>
-                  <hr />
+                <div className="flexBetween">
+                  <div>
+                    <h3 className="font-semibold">{item.label}</h3>
+                    <hr />
+                  </div>
+                  <div>
+                    <div
+                      className="icon"
+                      onClick={() => {
+                        dispatch({ type: "editItem", payload: item.id });
+                      }}
+                    >
+                      <FaEdit />
+                    </div>
+                    <div
+                      className="icon"
+                      onClick={() => {
+                        dispatch({ type: "removeItem", payload: item.id });
+                        console.log(item.id);
+                      }}
+                    >
+                      <FaTrash />
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="flex justify-between items-center w-full gap-5">

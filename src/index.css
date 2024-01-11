@@ -67,14 +67,14 @@ body {
   }
 
   .modal {
-    @apply w-[100%] md:w-[80%] h-auto lg:h-[90vh] bg-bgSecondary fixed left-[50%] top-[50%] flex flex-col
+    @apply w-[100%] md:w-[80%] h-auto lg:min-h-[90vh] bg-bgSecondary fixed left-[50%] top-[50%] flex flex-col
     items-center justify-center z-50 translate-x-[-50%] translate-y-[-50%];
   }
   .modal_overlay {
     @apply w-svw h-screen fixed bg-slate-400 opacity-50;
   }
   .modal-box {
-    @apply z-50 w-[90%] md:w-full bg-bgMain h-full flex flex-col items-center justify-center relative rounded-lg p-3;
+    @apply z-50 w-[90%] md:w-full bg-bgMain h-full lg:min-h-[90vh] flex flex-col items-center justify-center relative rounded-lg p-3;
   }
   .form {
     @apply flex flex-col items-center justify-center gap-10 border rounded-lg p-3 lg:p-10 capitalize;
