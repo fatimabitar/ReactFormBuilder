@@ -67,7 +67,7 @@ body {
   }
 
   .modal {
-    @apply w-[100%] md:w-[80%] h-auto md:h-[90vh] bg-bgSecondary fixed left-[50%] top-[50%] flex flex-col
+    @apply w-[100%] md:w-[80%] h-auto lg:h-[90vh] bg-bgSecondary fixed left-[50%] top-[50%] flex flex-col
     items-center justify-center z-50 translate-x-[-50%] translate-y-[-50%];
   }
   .modal_overlay {
